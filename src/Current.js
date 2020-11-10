@@ -2,17 +2,13 @@
 
 const Current = () => {
 
-    const getCurrentWeather = async () => {
-        const response = await fetch("https://rapidapi.p.rapidapi.com/weather/nowcast?lat=42.8237618&lon=-71.2216286&fields=precipitation",{
-          "method": "GET",
-          "headers": {
-              "x-rapidapi-key": "ac746c70afmshf61b131192dee8dp1196e6jsnd3c8866cc424",
-              "x-rapidapi-host": "climacell-microweather-v1.p.rapidapi.com"
-          }
-      })
-          console.log(response);
-      }
-      getCurrentWeather();
+    // const getCurrentWeather = async () => {
+    //     const response = await fetch(
+    //       }
+    //   })
+    //       console.log(response);
+    //   }
+    //   getCurrentWeather();
 
     return (
         <div>
