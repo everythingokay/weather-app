@@ -1,14 +1,14 @@
 import './App.css';
 import Header from "./Header";
-import Current from "./Current";
+import Today from "./Today";
 import FiveDay from "./FiveDay";
 
 function App() {
   return (
     <div className="App">
-        <Header />
-        <Current />
-        <FiveDay />
+        {/* <Header /> */}
+        <Today />
+        {/* <FiveDay /> */}
     </div>
   );
 }
