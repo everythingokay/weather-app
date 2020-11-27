@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import Current from "../Current";
+import Today from "../Today";
 
 const Header = (props) => {
 
-    // let [city, setCity] = useState('');
-    // let cityInput;
+    const [city, setCity] = useState('Philadelphia');
+    var cityInput;
 
     return (
         <div>
-    {/* //         <form>
-    //             <input
-    //             type="text"
-    //             placeholder="search city"
-    //             onChange={(event) => {
-    //                 cityInput = event.target.value}}
-    //             />
-    //             <button onClick={(event) => {
-    //                 event.preventDefault();
-    //                 setCity(cityInput);}}>go</button>
-    //         </form>
-    //         <h2>weather for {city}</h2> */}
+             <form>
+                 <input
+                 type="text"
+                 placeholder="search city"
+                 onChange={(event) => {
+                     cityInput = event.target.value}}
+                 />
+                 <button onClick={(event) => {
+                     event.preventDefault();
+                     setCity(cityInput);}}>go</button>
+             </form>
+        <Today city={city} />
         </div>
     )
 }

@@ -6,8 +6,8 @@ import FiveDay from "./FiveDay";
 function App() {
   return (
     <div className="App">
-        {/* <Header /> */}
-        <Today />
+        <Header />
+        {/* <Today /> */}
         {/* <FiveDay /> */}
     </div>
   );
