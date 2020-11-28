@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +31,73 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App {
+    height: 100vh;
+    background: url("images/background.jpg") no-repeat center / cover;
+    background-color: #fff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+    min-height: 364px;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0px 10px #111;
+    mix-blend-mode: difference;
+    user-select: none;
+}
+
+.today {
+    margin: 15px;
+    padding: 15px;
+    font-family: Helvetica, sans-serif;
+    align-items: center;
+}
+
+.today-image {
+    width: 110px;
+}
+
+.current-city {
+    font-size: 30px;
+}
+
+.week {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Helvetica, sans-serif;
+}
+
+.eachDay {
+    margin: 15px;
+    padding: 15px;
+}
+
+.today-temp {
+    font-size: 6rem;
+    justify-content: center;
+}
+
+.today-description {
+    font-size: 15px;
+    justify-content: center;
+}
+
+.today-range {
+    
+}
+
+.today-feel {
+    
 }

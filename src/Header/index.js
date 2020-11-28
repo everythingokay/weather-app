@@ -8,18 +8,18 @@ const Header = (props) => {
 
     return (
         <div>
-             <form>
-                 <input
-                 type="text"
-                 placeholder="search city"
-                 onChange={(event) => {
-                     cityInput = event.target.value}}
-                 />
-                 <button onClick={(event) => {
-                     event.preventDefault();
-                     setCity(cityInput);}}>go</button>
-             </form>
-        <Today city={city} />
+            <form>
+                <input
+                type="text"
+                placeholder="search city"
+                onChange={(e) => {cityInput = e.target.value}}/>
+
+                <button onClick={(e) => {
+                e.preventDefault();
+                setCity(cityInput);}}>go</button>
+            </form>
+
+            <Today city={city}/>
         </div>
     )
 }
