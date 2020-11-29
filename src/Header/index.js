@@ -8,18 +8,17 @@ const Header = (props) => {
 
     return (
         <div>
-            <form>
-                <input
-                type="text"
-                placeholder="search city"
+            <form className="header">
+                <input type="text" placeholder="search city" 
                 onChange={(e) => {cityInput = e.target.value}}/>
 
                 <button onClick={(e) => {
-                e.preventDefault();
-                setCity(cityInput);}}>go</button>
+                    e.preventDefault();
+                    setCity(cityInput);}}>go</button>
             </form>
 
             <Today city={city}/>
+
         </div>
     )
 }

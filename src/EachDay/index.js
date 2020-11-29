@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Today from "../Today";
 
 const EachDay = (props) => {
 
-    // let newDate = new Date();
-    // const weekday = props.dt * 1000
-    // newDate.setTime(weekday)
-
     return (
         <div>
-           {props.main.temp}
             {/* <div className="week">
                 <div className="eachDay">
                     <img src={props.weather[0].icon} />

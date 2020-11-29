@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
+import EachDay from "../EachDay";
 
-// var moment = require('moment');
+var moment = require('moment');
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const Today = (props) => {
 
-    // const [currentWeather, setCurrentWeather] = useState([]);
-    const [today, setToday] = useState([]);
-    const [tomorrow, setTomorrow] = useState([]);
-    const [dayThree, setDayThree] = useState([]);
-    const [dayFour, setDayFour] = useState([]);
-    const [dayFive, setDayFive] = useState([]);
+    const [currentWeather, setCurrentWeather] = useState();
+    const [nextFour, setNextFour] = useState(false);
+    const [today, setToday] = useState();
+    const [tomorrow, setTomorrow] = useState();
+    const [dayThree, setDayThree] = useState();
+    const [dayFour, setDayFour] = useState();
+    const [dayFive, setDayFive] = useState();
 
     useEffect(() => {
         const getCurrentWeather = async () => {
@@ -24,6 +26,10 @@ const Today = (props) => {
             const dayFour = currentWeather.list[24];
             const dayFive = currentWeather.list[32];
 
+            let newDate = new Date();
+            const weekday = currentWeather.list[0].dt * 1000
+            newDate.setTime(weekday)
+
             setToday(today);
             setTomorrow(tomorrow);
             setDayThree(dayThree);
@@ -32,11 +38,13 @@ const Today = (props) => {
 
             console.log(currentWeather);
         };
+
         getCurrentWeather();
     }, [props.city]);
 
     return (
         <div className="wrapper">
+
             <div className="today">
                 <img className="today-image" src={`http://openweathermap.org/img/wn/${today.weather[0].icon}.png`} />
                 <span className="current-city">{props.city}</span>
@@ -46,6 +54,8 @@ const Today = (props) => {
                 <div className="today-feel">Real Feel: {Math.round(today.main.feels_like)}°F</div>
             </div>
 
+            <button className="next-days" onClick={() => setNextFour(!nextFour)}>next four days</button>
+            {nextFour &&
             <div className="week">
                 <div className="eachDay">
                     <img className="week-image" src={`http://openweathermap.org/img/wn/${tomorrow.weather[0].icon}.png`} />
@@ -68,9 +78,8 @@ const Today = (props) => {
                     <div className="week-description">{dayFive.weather[0].description}</div>
                 </div>
             </div>
+            }
 
-            {/* <h3 className="card-title">{moment(newDate).format('dddd')}</h3>
-            <p className="text-muted">{moment(newDate).format('MMMM Do, h:mm a')}</p> */}
         </div>
     )
 }

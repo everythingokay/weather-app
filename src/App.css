@@ -35,33 +35,39 @@
 
 .App {
     height: 100vh;
-    background: url("images/background.jpg") no-repeat center / cover;
+    background: url("images/background2.jpg") no-repeat center / cover;
     background-color: #fff;
-    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.header {
+    position: fixed;
+    top: 30px;
+}
 .wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 500px;
-    min-height: 364px;
+    width: 600px;
+    /* min-height: 364px; */
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 0px 10px #111;
-    mix-blend-mode: difference;
-    user-select: none;
+    background-color: #fff;
+    /* opacity: 0.7; */
+    /* mix-blend-mode: difference; */
+    margin-top: 15px;
+    margin-left: auto;
 }
 
 .today {
-    margin: 15px;
     padding: 15px;
     font-family: Helvetica, sans-serif;
     align-items: center;
+    color: #000;
 }
 
 .today-image {
@@ -70,6 +76,21 @@
 
 .current-city {
     font-size: 30px;
+    color: #000;
+}
+
+.next-days {
+    width: 90px;
+}
+
+.today-temp {
+    font-size: 6rem;
+    justify-content: center;
+}
+
+.today-description {
+    font-size: 15px;
+    justify-content: center;
 }
 
 .week {
@@ -84,20 +105,7 @@
     padding: 15px;
 }
 
-.today-temp {
-    font-size: 6rem;
-    justify-content: center;
-}
-
-.today-description {
+.week-description {
     font-size: 15px;
-    justify-content: center;
-}
-
-.today-range {
-    
-}
-
-.today-feel {
-    
+    /* text-transform: uppercase; */
 }
