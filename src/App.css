@@ -51,36 +51,42 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 600px;
-    /* min-height: 364px; */
+    color: #fff;
+    width: 500px;
+    height: 500px;
+    min-height: 364px;
     padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 0px 10px #111;
-    background-color: #fff;
-    /* opacity: 0.7; */
+
     /* mix-blend-mode: difference; */
+    user-select: none;
     margin-top: 15px;
     margin-left: auto;
 }
 
 .today {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left; */
+    border-radius: 5px;
+    box-shadow: 0 0px 10px #111;
     padding: 15px;
     font-family: Helvetica, sans-serif;
-    align-items: center;
-    color: #000;
+    color: #fff;
 }
 
-.today-image {
-    width: 110px;
+.today-icon {
+    width: 128px;
 }
 
 .current-city {
     font-size: 30px;
-    color: #000;
+    /* color: #000; */
 }
 
 .next-days {
     width: 90px;
+    /* position: fixed; */
 }
 
 .today-temp {
@@ -97,6 +103,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 0px 10px #111;
     font-family: Helvetica, sans-serif;
 }
 
