@@ -65,11 +65,13 @@
 }
 
 .today-icon {
-    width: 128px;
+    width: 8em;
 }
 
 .current-city {
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
     /* color: #000; */
 }
 
@@ -78,7 +80,8 @@
 }
 
 .today-temp {
-    font-size: 6rem;
+    font-size: 100px;
+    font-weight: bold;
     justify-content: center;
 }
 
@@ -96,6 +99,10 @@
     border-radius: 5px;
     box-shadow: 0 0px 4px #282c34;
     font-family: Helvetica, sans-serif;
+}
+
+.week-date {
+    font-weight: bold;
 }
 
 .eachDay {

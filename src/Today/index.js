@@ -49,9 +49,9 @@ const Today = (props) => {
         <div className="wrapper">
 
             <div className="today">
-                <img className="today-icon" src={`http://openweathermap.org/img/wn/${today.weather[0].icon}.png`} />
-                <div><span className="current-city">{props.city}</span></div>
-                <div className="today-temp">{Math.round(today.main.temp)}°F</div>
+                <img className="today-icon" src={`http://openweathermap.org/img/wn/${today.weather[0].icon}@2x.png`} />
+                <span className="current-city">{props.city}</span>
+                <div className="today-temp">{Math.round(today.main.temp)}°</div>
                 <div className="today-description">{today.weather[0].description}</div>
                 <div className="today-range">{Math.round(today.main.temp_max)}°F / {Math.round(today.main.temp_min)}°F</div>
                 <div className="today-feel">Real Feel: {Math.round(today.main.feels_like)}°F</div>
@@ -61,8 +61,7 @@ const Today = (props) => {
 
             <div className="week">
                 {nextFour && [tomorrow, dayThree, dayFour, dayFive].map((day) => (
-                <div className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt}/>
-                {/* <div className="week-date">{moment(props).format('dddd')}</div> */}
+                <div className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt}/>
                 </div>
             ))}
             </div>
