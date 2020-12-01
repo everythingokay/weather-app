@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EachDay from "../EachDay";
+import moment from 'moment';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -30,8 +31,8 @@ const Today = (props) => {
             setDayFour(dayFour);
             setDayFive(dayFive);
 
-            let unix_timestamp = today.dt;
-            var date = new Date(unix_timestamp * 1000);
+            // let unix_timestamp = today.dt;
+            // var date = new Date(unix_timestamp * 1000);
 
             console.log(currentWeather);
         };
@@ -43,17 +44,21 @@ const Today = (props) => {
         return null;
     }
 
+    let newDate = new Date();
+    const weekday = today.dt * 1000;
+    newDate.setTime(weekday)
+
     return (
         <div className="wrapper">
 
             <div className="today">
                 <img className="today-icon" src={`http://openweathermap.org/img/wn/${today.weather[0].icon}.png`} />
-                <span className="current-city">{props.city}</span>
+                <div><span className="current-city">{props.city}</span></div>
                 <div className="today-temp">{Math.round(today.main.temp)}°F</div>
                 <div className="today-description">{today.weather[0].description}</div>
                 <div className="today-range">{Math.round(today.main.temp_max)}°F / {Math.round(today.main.temp_min)}°F</div>
                 <div className="today-feel">Real Feel: {Math.round(today.main.feels_like)}°F</div>
-                {date}
+                <div className="today-date">{moment(newDate).format('dddd, MMMM Do')}</div>
                 <button className="next-days" onClick={() => setNextFour(!nextFour)}>next four days</button>
             </div>
 

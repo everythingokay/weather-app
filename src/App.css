@@ -34,8 +34,8 @@
 }
 
 .App {
-    height: 100vh;
-    background: url("images/background2.jpg") no-repeat center / cover;
+    height: 90vh;
+    background: url("images/background6.jpg") no-repeat center / cover;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -54,22 +54,11 @@
     color: #fff;
     width: 500px;
     height: 500px;
-    min-height: 364px;
     padding: 1rem;
-
-    /* mix-blend-mode: difference; */
-    user-select: none;
-    margin-top: 15px;
     margin-left: auto;
 }
 
 .today {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: left; */
-    border-radius: 5px;
-    box-shadow: 0 0px 10px #111;
     padding: 15px;
     font-family: Helvetica, sans-serif;
     color: #fff;
@@ -86,7 +75,6 @@
 
 .next-days {
     width: 90px;
-    /* position: fixed; */
 }
 
 .today-temp {
@@ -103,8 +91,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 15px;
+    color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0px 10px #111;
+    box-shadow: 0 0px 4px #282c34;
     font-family: Helvetica, sans-serif;
 }
 
