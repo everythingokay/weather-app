@@ -6,7 +6,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const Today = (props) => {
 
-    const [currentWeather, setCurrentWeather] = useState();
+    // const [currentWeather, setCurrentWeather] = useState();
     const [nextFour, setNextFour] = useState(false);
     const [today, setToday] = useState({});
     const [tomorrow, setTomorrow] = useState({});
@@ -20,19 +20,16 @@ const Today = (props) => {
             const currentWeather = await response.json();
 
             const today = currentWeather.list[0];
-            const tomorrow = currentWeather.list[8];
-            const dayThree = currentWeather.list[16];
-            const dayFour = currentWeather.list[24];
-            const dayFive = currentWeather.list[32];
+            const tomorrow = currentWeather.list[6];
+            const dayThree = currentWeather.list[14];
+            const dayFour = currentWeather.list[22];
+            const dayFive = currentWeather.list[30];
 
             setToday(today);
             setTomorrow(tomorrow);
             setDayThree(dayThree);
             setDayFour(dayFour);
             setDayFive(dayFive);
-
-            // let unix_timestamp = today.dt;
-            // var date = new Date(unix_timestamp * 1000);
 
             console.log(currentWeather);
         };
@@ -64,7 +61,9 @@ const Today = (props) => {
 
             <div className="week">
                 {nextFour && [tomorrow, dayThree, dayFour, dayFive].map((day) => (
-                <div className="eachDay"><EachDay weather={day.weather} main={day.main} /></div>
+                <div className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt}/>
+                {/* <div className="week-date">{moment(props).format('dddd')}</div> */}
+                </div>
             ))}
             </div>
 
