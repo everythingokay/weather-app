@@ -6,7 +6,6 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const Today = (props) => {
 
-    // const [currentWeather, setCurrentWeather] = useState();
     const [nextFour, setNextFour] = useState(false);
     const [today, setToday] = useState({});
     const [tomorrow, setTomorrow] = useState({});
@@ -49,14 +48,22 @@ const Today = (props) => {
         <div className="wrapper">
 
             <div className="today">
-                <img className="today-icon" src={`http://openweathermap.org/img/wn/${today.weather[0].icon}@2x.png`} />
-                <span className="current-city">{props.city}</span>
-                <div className="today-temp">{Math.round(today.main.temp)}°</div>
-                <div className="today-description">{today.weather[0].description}</div>
-                <div className="today-range">{Math.round(today.main.temp_max)}°F / {Math.round(today.main.temp_min)}°F</div>
-                <div className="today-feel">Real Feel: {Math.round(today.main.feels_like)}°F</div>
-                <div className="today-date">{moment(newDate).format('dddd, MMMM Do')}</div>
-                <button className="next-days" onClick={() => setNextFour(!nextFour)}>next four days</button>
+                <div className="row1">
+                    <img className="today-icon" src={`http://openweathermap.org/img/wn/${today.weather[0].icon}@2x.png`} />
+                    <div className="column2">
+                        <span className="current-city">{props.city}</span>
+                        <span className="today-date">{moment(newDate).format('dddd, MMMM Do')}</span>
+                    </div>
+                </div>
+                <div className="row2">
+                    <span className="today-range">Hi {Math.round(today.main.temp_max)}° &nbsp;&nbsp; Lo {Math.round(today.main.temp_min)}°</span>
+                    <span className="today-temp">{Math.round(today.main.temp)}°</span>
+                    <span className="today-feel">feels like {Math.round(today.main.feels_like)}°F</span>
+                </div>
+                <div className="row3">
+                    <span className="today-description">{today.weather[0].description}</span>
+                    <div className="next-days" onClick={() => setNextFour(!nextFour)}>\/</div>
+                </div>
             </div>
 
             <div className="week">

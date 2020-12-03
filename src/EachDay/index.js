@@ -3,10 +3,6 @@ import moment from 'moment';
 
 const EachDay = (props) => {
 
-    // let newDate = new Date();
-    // const weekday = props.dt * 1000;
-    // newDate.setTime(weekday)
-
     return (
         <div>
             <div className="week-date">{moment(props.date).format('dddd')}</div>
