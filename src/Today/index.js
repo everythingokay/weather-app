@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EachDay from "../EachDay";
 import moment from 'moment';
+import "./images/down-arrow.svg";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -62,17 +63,16 @@ const Today = (props) => {
                 </div>
                 <div className="row3">
                     <span className="today-description">{today.weather[0].description}</span>
-                    <div className="next-days" onClick={() => setNextFour(!nextFour)}>\/</div>
+                    <span className="next-days" onClick={() => setNextFour(!nextFour)}><img className="down-arrow" src="./images/down-arrow.svg" /></span>
                 </div>
             </div>
 
             <div className="week">
                 {nextFour && [tomorrow, dayThree, dayFour, dayFive].map((day) => (
-                <div className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt}/>
-                </div>
-            ))}
+                <span className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt}/>
+                </span>
+                ))}
             </div>
-
         </div>
     )
 }
