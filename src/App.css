@@ -150,9 +150,21 @@ input[type=text] {
     font-style: oblique;
 }
 
+.heart {
+    height: 15px;
+}
+
+.heart-button {
+    height: 25px;
+    background: none;
+    border: 0px;
+    margin: 5px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
 .arrow {
     height: 25px;
-    color: #949494;
 }
 
 .week {

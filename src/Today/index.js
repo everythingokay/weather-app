@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import EachDay from "../EachDay";
+import Heart from "../Heart";
 import { Router } from "@reach/router";
-import DayTwo from "../DayTwo";
-import DayThree from "../DayThree";
-import DayFour from "../DayFour";
-import DayFive from "../DayFive";
+import { Link } from "@reach/router";
+import Day from "../Day";
 import "./images/down-arrow.svg";
 import "./images/up-arrow.svg";
 
@@ -56,33 +55,6 @@ const Today = (props) => {
     const weekday = today.dt * 1000;
     newDate.setTime(weekday)
 
-    let singleDay;
-    if (tomorrow) {
-        singleDay = "daytwo";
-    } else if (dayThree) {
-        singleDay = "daythree";
-    } else if (dayFour) {
-        singleDay = "dayfour";
-    } else if (dayFive) {
-        singleDay = "dayfive";
-    }
-
-    // const singleDay = [{
-    //     path: '/daytwo',
-    //     component: DayTwo,
-    //   }, {
-    //     path: '/daythree',
-    //     component: DayThree,
-    //   }, {
-    //     path: '/dayfour',
-    //     component: DayFour,
-    //   }, {
-    //     path: 'dayfive',
-    //     component: DayFive,
-    //   },];
-
-    //   const routeComponents = singleDay.map(({path, component}, key) => <Route path={path} component={component} key={key} />);
-
     return (
         <div className="wrapper">
 
@@ -100,29 +72,17 @@ const Today = (props) => {
                     <span className="today-feel">feels like {Math.round(today.main.feels_like)}°F</span>
                 </div>
                 <div className="row3">
-                    <span className="today-description">{today.weather[0].description}</span>
+                    <span className="today-description">{today.weather[0].description}<Heart /></span>
                     <span className="next-days" onClick={() => setNextDays(!nextDays)}><img className="arrow" src={imgsrc} /></span>
                 </div>
             </div>
 
             <div className="week">
-                {nextDays && [tomorrow, dayThree, dayFour, dayFive].map((day) => (
-                <span className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt} singleDay={singleDay} />
+                {nextDays && [tomorrow, dayThree, dayFour, dayFive].map((day, index) => (
+                <span className="eachDay"><Link to={`day/${index}`}><EachDay weather={day.weather} main={day.main} date={day.dt_txt} /></Link>
                 </span>
                 ))}
-
-
-                {/* <Router>
-                    {routeComponents}
-                </Router> */}
             </div>
-
-            {/* <Router>
-                <DayTwo path="/daytwo" />
-                <DayThree path="/daythree" />
-                <DayFour path="/dayfour" />
-                <DayFive path="/dayfive" />
-            </Router> */}
         </div>
     )
 }

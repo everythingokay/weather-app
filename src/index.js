@@ -3,19 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Router } from "@reach/router";
-// import DayTwo from "./DayTwo";
-// import DayThree from "./DayThree";
-// import DayFour from "./DayFour";
-// import DayFive from "./DayFive";
+import Day from "./Day";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
         <App path="/" />
-        {/* <DayTwo path="/daytwo" />
-        <DayThree path="/daythree" />
-        <DayFour path="/dayfour" />
-        <DayFive path="/dayfive" /> */}
+        <Day path="/day/:dayNumber" />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

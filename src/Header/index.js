@@ -10,6 +10,7 @@ const Header = (props) => {
     let [cityInput, setCityInput] = useState('');
 
     const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => console.log(data);
 
     let main;
     if (current) {
@@ -20,8 +21,8 @@ const Header = (props) => {
 
     return (
         <div>
-            <form className="header">
-                <input ref={register} type="text" placeholder="Search city..."
+            <form onSubmit={handleSubmit(onSubmit)} className="header">
+                <input type="text" ref={register({ required: "Please enter a city."})} placeholder="Search city..."
                 onChange={(e) => {cityInput = e.target.value}}/>
 
                 <button className="search-button" onClick={(e) => {
