@@ -56,16 +56,32 @@ const Today = (props) => {
     const weekday = today.dt * 1000;
     newDate.setTime(weekday)
 
-    let singleDay;
-    if (tomorrow) {
-        singleDay = "daytwo";
-    } else if (dayThree) {
-        singleDay = "daythree";
-    } else if (dayFour) {
-        singleDay = "dayfour";
-    } else if (dayFive) {
-        singleDay = "dayfive";
-    }
+    // let singleDay;
+    // if (tomorrow) {
+    //     singleDay = "daytwo";
+    // } else if (dayThree) {
+    //     singleDay = "daythree";
+    // } else if (dayFour) {
+    //     singleDay = "dayfour";
+    // } else if (dayFive) {
+    //     singleDay = "dayfive";
+    // }
+
+    // const singleDay = [{
+    //     path: '/daytwo',
+    //     component: DayTwo,
+    //   }, {
+    //     path: '/daythree',
+    //     component: DayThree,
+    //   }, {
+    //     path: '/dayfour',
+    //     component: DayFour,
+    //   }, {
+    //     path: 'dayfive',
+    //     component: DayFive,
+    //   },];
+
+    //   const routeComponents = singleDay.map(({path, component}, key) => <Route path={path} component={component} key={key} />);
 
     return (
         <div className="wrapper">
@@ -94,6 +110,11 @@ const Today = (props) => {
                 <span className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt} singleDay={singleDay} />
                 </span>
                 ))}
+
+
+                {/* <Router>
+                    {routeComponents}
+                </Router> */}
             </div>
 
             {/* <Router>
