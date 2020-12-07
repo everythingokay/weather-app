@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import EachDay from "../EachDay";
-import moment from 'moment';
+import DayTwo from "../DayTwo";
+import moment from "moment";
+import { Router } from "@reach/router";
 import "./images/down-arrow.svg";
+import "./images/up-arrow.svg";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const Today = (props) => {
 
     const [nextFour, setNextFour] = useState(false);
+    const [current, setCurrent] = useState({});
     const [today, setToday] = useState({});
     const [tomorrow, setTomorrow] = useState({});
     const [dayThree, setDayThree] = useState({});
@@ -25,6 +29,7 @@ const Today = (props) => {
             const dayFour = currentWeather.list[22];
             const dayFive = currentWeather.list[30];
 
+            setCurrent(current);
             setToday(today);
             setTomorrow(tomorrow);
             setDayThree(dayThree);
@@ -39,6 +44,13 @@ const Today = (props) => {
 
     if (!today.weather) {
         return null;
+    }
+
+    let imgsrc;
+    if (nextFour) {
+        imgsrc = "./images/up-arrow.svg";
+    } else {
+        imgsrc = "./images/down-arrow.svg";
     }
 
     let newDate = new Date();
@@ -63,7 +75,7 @@ const Today = (props) => {
                 </div>
                 <div className="row3">
                     <span className="today-description">{today.weather[0].description}</span>
-                    <span className="next-days" onClick={() => setNextFour(!nextFour)}><img className="down-arrow" src="./images/down-arrow.svg" /></span>
+                    <span className="next-days" onClick={() => setNextFour(!nextFour)}><img className="arrow" src={imgsrc} /></span>
                 </div>
             </div>
 
@@ -73,6 +85,10 @@ const Today = (props) => {
                 </span>
                 ))}
             </div>
+
+            <Router>
+                <DayTwo path="/DayTwo" current={current} />
+            </Router>
         </div>
     )
 }

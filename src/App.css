@@ -17,11 +17,22 @@ body, html {
     justify-content: center;
 }
 
+.title {
+    font-family: Helvetica, sans-serif;
+    color: #becdda;
+    font-size: 62px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    margin-top: 154px;
+    margin-left: 44px;
+}
+
 .header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    width: 575px;
     margin-top: 25px;
 }
 
@@ -54,7 +65,7 @@ input[type=text] {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 80px;
+    margin-top: 30px;
     padding: 15px;
     font-family: Helvetica, sans-serif;
     color: #fff;
@@ -75,12 +86,13 @@ input[type=text] {
     margin-top: 10px;
     font-size: 26px;
     font-weight: bold;
-    /* color: #000; */
+    letter-spacing: .1rem;
 }
 
 .today-date {
     font-size: 16px;
     font-weight: 600;
+    color: #cdd6e4;
 }
 
 .column2 {
@@ -101,6 +113,7 @@ input[type=text] {
     margin-top: 20px;
     font-size: 14px;
     font-weight: bold;
+    color: #cdd6e4;
 }
 
 .today-temp {
@@ -112,6 +125,7 @@ input[type=text] {
 .today-feel {
     font-size: 14px;
     font-weight: 600;
+    color: #cdd6e4;
 }
 
 .row3 {
@@ -128,7 +142,7 @@ input[type=text] {
     font-style: oblique;
 }
 
-.down-arrow {
+.arrow {
     height: 25px;
     color: #949494;
 }
@@ -141,24 +155,28 @@ input[type=text] {
     margin-top: 15px;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 5px;
-    /* box-shadow: 0 0px 4px #282c34; */
     font-family: Helvetica, sans-serif;
-}
-
-.week-date {
-    font-weight: bold;
 }
 
 .eachDay {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     margin: 15px;
     padding: 15px;
     color: #fff;
 }
 
+.week-date {
+    font-weight: bold;
+}
+
+.week-temp {
+    font-weight: 600;
+}
+
 .week-description {
     font-size: 15px;
-    /* text-transform: uppercase; */
+    letter-spacing: .1rem;
 }

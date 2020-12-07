@@ -8,6 +8,13 @@ const Header = (props) => {
     const [city, setCity] = useState('Philadelphia');
     let [cityInput, setCityInput] = useState('');
 
+    let main;
+    if (current) {
+        main = <Today city={city}/>;
+    } else {
+        main = <div className="title">calm cl&nbsp;&nbsp;uds</div>
+    }
+
     return (
         <div>
             <form className="header">
@@ -21,7 +28,7 @@ const Header = (props) => {
                 }}><img className="search-button" src="./images/search-symbol.svg" /></span>
             </form>
 
-            {current && <Today city={city}/>}
+            {main}
 
         </div>
     )
