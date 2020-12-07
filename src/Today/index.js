@@ -13,7 +13,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const Today = (props) => {
 
-    const [nextFour, setNextFour] = useState(false);
+    const [nextDays, setNextDays] = useState(false);
     const [currentWeather, setCurrentWeather] = useState({});
     const [today, setToday] = useState({});
     const [tomorrow, setTomorrow] = useState({});
@@ -50,7 +50,7 @@ const Today = (props) => {
     }
 
     let imgsrc;
-    nextFour ? imgsrc = "./images/up-arrow.svg" : imgsrc = "./images/down-arrow.svg";
+    nextDays ? imgsrc = "./images/up-arrow.svg" : imgsrc = "./images/down-arrow.svg";
 
     let newDate = new Date();
     const weekday = today.dt * 1000;
@@ -85,22 +85,22 @@ const Today = (props) => {
                 </div>
                 <div className="row3">
                     <span className="today-description">{today.weather[0].description}</span>
-                    <span className="next-days" onClick={() => setNextFour(!nextFour)}><img className="arrow" src={imgsrc} /></span>
+                    <span className="next-days" onClick={() => setNextDays(!nextDays)}><img className="arrow" src={imgsrc} /></span>
                 </div>
             </div>
 
             <div className="week">
-                {nextFour && [tomorrow, dayThree, dayFour, dayFive].map((day) => (
+                {nextDays && [tomorrow, dayThree, dayFour, dayFive].map((day) => (
                 <span className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt} singleDay={singleDay} />
                 </span>
                 ))}
             </div>
 
             {/* <Router>
-                <DayTwo path="/daytwo" current={currentWeather} />
-                <DayThree path="/daythree" current={currentWeather} />
-                <DayFour path="/dayfour" current={currentWeather} />
-                <DayFive path="/dayfive" current={currentWeather} />
+                <DayTwo path="/daytwo" />
+                <DayThree path="/daythree" />
+                <DayFour path="/dayfour" />
+                <DayFive path="/dayfive" />
             </Router> */}
         </div>
     )

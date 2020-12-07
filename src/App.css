@@ -11,6 +11,10 @@ body, html {
     background-color: #fff;
 }
 
+Link {
+    text-decoration: none;
+}
+
 .App {
     display: flex;
     align-items: center;
