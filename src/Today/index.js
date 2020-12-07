@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import EachDay from "../EachDay";
-import DayTwo from "../DayTwo";
 import moment from "moment";
+import EachDay from "../EachDay";
 import { Router } from "@reach/router";
+import DayTwo from "../DayTwo";
 import "./images/down-arrow.svg";
 import "./images/up-arrow.svg";
 
@@ -11,7 +11,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const Today = (props) => {
 
     const [nextFour, setNextFour] = useState(false);
-    const [current, setCurrent] = useState({});
+    const [currentWeather, setCurrentWeather] = useState({});
     const [today, setToday] = useState({});
     const [tomorrow, setTomorrow] = useState({});
     const [dayThree, setDayThree] = useState({});
@@ -29,7 +29,7 @@ const Today = (props) => {
             const dayFour = currentWeather.list[22];
             const dayFive = currentWeather.list[30];
 
-            setCurrent(current);
+            setCurrentWeather(currentWeather);
             setToday(today);
             setTomorrow(tomorrow);
             setDayThree(dayThree);
@@ -47,15 +47,22 @@ const Today = (props) => {
     }
 
     let imgsrc;
-    if (nextFour) {
-        imgsrc = "./images/up-arrow.svg";
-    } else {
-        imgsrc = "./images/down-arrow.svg";
-    }
+    nextFour ? imgsrc = "./images/up-arrow.svg" : imgsrc = "./images/down-arrow.svg";
 
     let newDate = new Date();
     const weekday = today.dt * 1000;
     newDate.setTime(weekday)
+
+    let singleDay;
+    if (tomorrow) {
+        singleDay = "daytwo";
+    } else if (dayThree) {
+        singleDay = "daythree";
+    } else if (dayFour) {
+        singleDay = "dayfour";
+    } else if (dayFive) {
+        singleDay = "dayfive";
+    }
 
     return (
         <div className="wrapper">
@@ -81,14 +88,14 @@ const Today = (props) => {
 
             <div className="week">
                 {nextFour && [tomorrow, dayThree, dayFour, dayFive].map((day) => (
-                <span className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt}/>
+                <span className="eachDay"><EachDay weather={day.weather} main={day.main} date={day.dt_txt} singleDay={singleDay} />
                 </span>
                 ))}
             </div>
 
-            <Router>
-                <DayTwo path="/DayTwo" current={current} />
-            </Router>
+            {/* <Router>
+                <DayTwo path="/daytwo" current={currentWeather} />
+            </Router> */}
         </div>
     )
 }

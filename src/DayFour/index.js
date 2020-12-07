@@ -1,6 +1,6 @@
 import React from "react";
 
-const DayTwo = (props) => {
+const DayFour = (props) => {
 
     return (
         <div className="wrapper">
@@ -9,4 +9,4 @@ const DayTwo = (props) => {
     )
 }
 
-export default DayTwo;
+export default DayFour;
