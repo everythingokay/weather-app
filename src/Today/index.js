@@ -3,6 +3,9 @@ import moment from "moment";
 import EachDay from "../EachDay";
 import { Router } from "@reach/router";
 import DayTwo from "../DayTwo";
+import DayThree from "../DayThree";
+import DayFour from "../DayFour";
+import DayFive from "../DayFive";
 import "./images/down-arrow.svg";
 import "./images/up-arrow.svg";
 
@@ -95,6 +98,9 @@ const Today = (props) => {
 
             {/* <Router>
                 <DayTwo path="/daytwo" current={currentWeather} />
+                <DayThree path="/daythree" current={currentWeather} />
+                <DayFour path="/dayfour" current={currentWeather} />
+                <DayFive path="/dayfive" current={currentWeather} />
             </Router> */}
         </div>
     )
