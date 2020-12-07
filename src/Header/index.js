@@ -24,12 +24,12 @@ const Header = (props) => {
                 <input ref={register} type="text" placeholder="Search city..."
                 onChange={(e) => {cityInput = e.target.value}}/>
 
-                <span onClick={(e) => {
+                <button className="search-button" onClick={(e) => {
                     e.preventDefault();
                     setCity(cityInput);
                     setCurrent(!current);
                     reset();
-                }}><img className="search-button" src="./images/search-symbol.svg" /></span>
+                }}><img className="search" src="./images/search-symbol.svg" /></button>
             </form>
 
             {main}

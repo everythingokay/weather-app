@@ -56,16 +56,16 @@ const Today = (props) => {
     const weekday = today.dt * 1000;
     newDate.setTime(weekday)
 
-    // let singleDay;
-    // if (tomorrow) {
-    //     singleDay = "daytwo";
-    // } else if (dayThree) {
-    //     singleDay = "daythree";
-    // } else if (dayFour) {
-    //     singleDay = "dayfour";
-    // } else if (dayFive) {
-    //     singleDay = "dayfive";
-    // }
+    let singleDay;
+    if (tomorrow) {
+        singleDay = "daytwo";
+    } else if (dayThree) {
+        singleDay = "daythree";
+    } else if (dayFour) {
+        singleDay = "dayfour";
+    } else if (dayFive) {
+        singleDay = "dayfive";
+    }
 
     // const singleDay = [{
     //     path: '/daytwo',

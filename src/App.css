@@ -52,11 +52,15 @@ input[type=text] {
 }
 
 .search-button {
+    background: none;
+    border: 0px;
+}
+
+.search {
     height: 25px;
     margin: 3px;
     margin-top: 10px;
 }
-
 
 .wrapper {
     /* border: 1px solid #000; */
