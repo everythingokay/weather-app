@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "@reach/router";
 import moment from "moment";
 
 const EachDay = (props) => {
@@ -10,7 +9,6 @@ const EachDay = (props) => {
                 <img className="week-icon" src={`http://openweathermap.org/img/wn/${props.weather[0].icon}.png`} />
                 <div className="week-temp">{Math.round(props.main.temp)} °F</div>
                 <div className="week-description">{props.weather[0].description}</div>
-                {/* <Link to={`day/${index}`}> */}
         </div>
     )
 }

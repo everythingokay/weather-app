@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
-import Header from "../Header";
-import Heart from "../Heart";
+import { Link } from "@reach/router";
+import "../images/left-arrow.svg";
 import "../images/down-arrow.svg";
 import "../images/up-arrow.svg";
 
@@ -12,12 +12,16 @@ const Day = (props) => {
 
     const [nextDays, setNextDays] = useState(false);
 
+    let back;
+    back = "../images/left-arrow.svg";
+
     let imgsrc;
     nextDays ? imgsrc = "../images/up-arrow.svg" : imgsrc = "../images/down-arrow.svg";
 
     return (
-        <div className="header">
+        <div>
             <div className="another-wrapper">
+                <Link className="back" to="/"><img className="back-arrow" src={back} /></Link>
                 <div className="today">
                     <div className="row1">
                     <img className="today-icon" src={`http://openweathermap.org/img/wn/${eachDay.weather[0].icon}@2x.png`} />

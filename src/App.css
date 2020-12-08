@@ -4,7 +4,7 @@
 
 body, html {
     height: 100%;
-    background-image: url("images/background6.jpg");
+    background-image: url("images/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -84,7 +84,7 @@ input[type=text] {
     color: #fff;
     width: 575px;
     margin-top: 50px;
-    margin-left: 540px;
+    margin-left: 420px;
 }
 
 .today {
@@ -196,6 +196,10 @@ input[type=text] {
 
 .arrow {
     height: 25px;
+}
+
+.back-arrow {
+    height: 15px;
 }
 
 .week {

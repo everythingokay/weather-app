@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import EachDay from "../EachDay";
 import Heart from "../Heart";
-import { Router } from "@reach/router";
 import { Link } from "@reach/router";
-import Day from "../Day";
 import "./images/down-arrow.svg";
 import "./images/up-arrow.svg";
 
