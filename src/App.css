@@ -11,8 +11,9 @@ body, html {
     background-color: #fff;
 }
 
-Link {
+a, a:link, a:visited {
     text-decoration: none;
+    color: inherit;
 }
 
 .App {
@@ -150,10 +151,6 @@ input[type=text] {
     font-style: oblique;
 }
 
-.heart {
-    height: 15px;
-}
-
 .heart-button {
     height: 25px;
     background: none;
@@ -161,6 +158,10 @@ input[type=text] {
     margin: 5px;
     margin-left: 10px;
     margin-top: 3px;
+}
+
+.heart {
+    height: 15px;
 }
 
 .arrow {

@@ -25,6 +25,7 @@ const Today = (props) => {
           const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=imperial`);
             const currentWeather = await response.json();
 
+            const week = currentWeather.list;
             const today = currentWeather.list[0];
             const tomorrow = currentWeather.list[6];
             const dayThree = currentWeather.list[14];
@@ -79,7 +80,7 @@ const Today = (props) => {
 
             <div className="week">
                 {nextDays && [tomorrow, dayThree, dayFour, dayFive].map((day, index) => (
-                <span className="eachDay"><Link to={`day/${index}`}><EachDay weather={day.weather} main={day.main} date={day.dt_txt} /></Link>
+                <span className="eachDay"><Link to={`day/${index}`} state={{ day }} className="link"><EachDay weather={day.weather} main={day.main} date={day.dt_txt} /></Link>
                 </span>
                 ))}
             </div>

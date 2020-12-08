@@ -3,38 +3,30 @@ import { useForm } from "react-hook-form";
 import Today from "../Today";
 import "./images/search-symbol.svg";
 
-const Header = (props) => {
+const Header = () => {
 
-    const [current, setCurrent] = useState(false);
-    const [city, setCity] = useState('Philadelphia');
-    let [cityInput, setCityInput] = useState('');
-
+    const [city, setCity] = useState('');
     const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => console.log(data);
 
+    const onSubmit = data => {
+        setCity(data.city);
+        reset();
+    }
     let main;
-    if (current) {
+    if (city.length) {
         main = <Today city={city}/>;
     } else {
         main = <div className="title">calm cl&nbsp;&nbsp;uds</div>
     }
-
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="header">
-                <input type="text" ref={register({ required: "Please enter a city."})} placeholder="Search city..."
-                onChange={(e) => {cityInput = e.target.value}}/>
-
-                <button className="search-button" onClick={(e) => {
-                    e.preventDefault();
-                    setCity(cityInput);
-                    setCurrent(!current);
-                    reset();
-                }}><img className="search" src="./images/search-symbol.svg" /></button>
+                <input name="city" type="text" ref={register({ required: "Please enter a city."})} placeholder="Search city..." />
+                <button className="search-button" type="submit">
+                    <img className="search" src="./images/search-symbol.svg" />
+                </button>
             </form>
-
             {main}
-
         </div>
     )
 }
