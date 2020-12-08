@@ -10,7 +10,7 @@ const Heart = () => {
     faved ? imgsrc = "./images/red-heart.svg" : imgsrc = "./images/black-heart.svg";
 
     return (
-            <button className="heart-button" onClick={() => setFaved(!faved)}><img className="heart" src={imgsrc} /></button>
+        <button className="heart-button" onClick={() => setFaved(!faved)}><img className="heart" src={imgsrc} /></button>
     )
 }
 

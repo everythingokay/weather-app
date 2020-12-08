@@ -20,6 +20,7 @@ a, a:link, a:visited {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .title {
@@ -65,15 +66,44 @@ input[type=text] {
 
 .wrapper {
     /* border: 1px solid #000; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     color: #fff;
     width: 575px;
     margin-left: auto;
 }
 
+.another-wrapper {
+    /* border: 1px solid #000; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    width: 575px;
+    margin-top: 50px;
+    margin-left: 540px;
+}
+
 .today {
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 30px;
+    padding: 15px;
+    font-family: Helvetica, sans-serif;
+    color: #fff;
+}
+
+.another-day {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 575px;
     margin-top: 30px;
     padding: 15px;
     font-family: Helvetica, sans-serif;

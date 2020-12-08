@@ -25,7 +25,6 @@ const Today = (props) => {
           const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=imperial`);
             const currentWeather = await response.json();
 
-            const week = currentWeather.list;
             const today = currentWeather.list[0];
             const tomorrow = currentWeather.list[6];
             const dayThree = currentWeather.list[14];
@@ -58,7 +57,6 @@ const Today = (props) => {
 
     return (
         <div className="wrapper">
-
             <div className="today">
                 <div className="row1">
                     <img className="today-icon" src={`http://openweathermap.org/img/wn/${today.weather[0].icon}@2x.png`} />
