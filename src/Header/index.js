@@ -22,7 +22,7 @@ const Header = () => {
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="header">
                 <input name="city" type="text" ref={register({ required: "Please enter a city."})} 
-                placeholder="Search city..." autocomplete="off"/>
+                placeholder="Search city..." autoComplete="off"/>
                 <button className="search-button" type="submit">
                     <img className="search" src="./images/search-symbol.svg" />
                 </button>

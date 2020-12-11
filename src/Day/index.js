@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import Today from "../Today";
 import { Link } from "@reach/router";
 import "../images/left-arrow.svg";
 import "../images/down-arrow.svg";
@@ -21,7 +22,7 @@ const Day = (props) => {
     return (
         <div>
             <div className="another-wrapper">
-                <Link className="back" to="/"><img className="back-arrow" src={back} /></Link>
+                {/* <Link className="back" to={<Today city={city}/>}><img className="back-arrow" src={back} /></Link> */}
                 <div className="today">
                     <div className="row1">
                     <img className="today-icon" src={`http://openweathermap.org/img/wn/${eachDay.weather[0].icon}@2x.png`} />
@@ -31,7 +32,7 @@ const Day = (props) => {
                         </div>
                     </div>
                     <div className="row2">
-                        <span className="today-range">Hi {Math.round(eachDay.main.temp_max)}° &nbsp;&nbsp; Lo {Math.round(eachDay.main.temp_min)}°</span>
+                        {/* <span className="today-range">Hi {Math.round(eachDay.main.temp_max)}° &nbsp;&nbsp; Lo {Math.round(eachDay.main.temp_min)}°</span> */}
                         <span className="today-temp">{Math.round(eachDay.main.temp)}°</span>
                         <span className="today-feel">feels like {Math.round(eachDay.main.feels_like)}°F</span>
                     </div>

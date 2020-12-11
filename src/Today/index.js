@@ -12,6 +12,7 @@ const Today = (props) => {
 
     const [nextDays, setNextDays] = useState(false);
     const [currentWeather, setCurrentWeather] = useState({});
+    const [forecast, setForecast] = useState({});
     const [today, setToday] = useState({});
     const [tomorrow, setTomorrow] = useState({});
     const [dayThree, setDayThree] = useState({});
@@ -23,6 +24,7 @@ const Today = (props) => {
           const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=imperial`);
             const currentWeather = await response.json();
 
+            const forecast = currentWeather.list;
             const today = currentWeather.list[0];
             const tomorrow = currentWeather.list[6];
             const dayThree = currentWeather.list[14];
@@ -30,6 +32,7 @@ const Today = (props) => {
             const dayFive = currentWeather.list[30];
 
             setCurrentWeather(currentWeather);
+            setForecast(forecast);
             setToday(today);
             setTomorrow(tomorrow);
             setDayThree(dayThree);
@@ -37,6 +40,7 @@ const Today = (props) => {
             setDayFive(dayFive);
 
             console.log(currentWeather);
+            console.log(forecast);
         };
 
         getCurrentWeather();
@@ -51,7 +55,7 @@ const Today = (props) => {
 
     let newDate = new Date();
     const weekday = today.dt * 1000;
-    newDate.setTime(weekday)
+    newDate.setTime(weekday);
 
     return (
         <div className="wrapper">
@@ -63,6 +67,7 @@ const Today = (props) => {
                         <span className="today-date">{moment(newDate).format('dddd, MMMM Do')}</span>
                     </div>
                 </div>
+                        {props.currentWeather}
                 <div className="row2">
                     <span className="today-range">Hi {Math.round(today.main.temp_max)}° &nbsp;&nbsp; Lo {Math.round(today.main.temp_min)}°</span>
                     <span className="today-temp">{Math.round(today.main.temp)}°</span>
@@ -73,10 +78,9 @@ const Today = (props) => {
                     <span className="next-days" onClick={() => setNextDays(!nextDays)}><img className="arrow" src={imgsrc} /></span>
                 </div>
             </div>
-
             <div className="week">
                 {nextDays && [tomorrow, dayThree, dayFour, dayFive].map((day, index) => (
-                <span className="eachDay"><Link to={`day/${index}`} state={{ day }} className="link"><EachDay weather={day.weather} main={day.main} date={day.dt_txt} /></Link>
+                <span className="eachDay"><Link to={`day/${index}`} state={{ day }} forecast={forecast} className="link"><EachDay weather={day.weather} main={day.main} date={day.dt_txt} /></Link>
                 </span>
                 ))}
             </div>
